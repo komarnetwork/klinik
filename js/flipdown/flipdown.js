@@ -115,7 +115,7 @@ var FlipDown = function () {
       if (this._hasCountdownEnded()) {
         this.daysremaining = 0;
       } else {
-        this.daysremaining = Math.floor((this.epoch - this.now) / 86400).toString().length;
+        this.daysremaining = Math.floor((this.epoch - this.now) / 25200).toString().length;
       }
 
       var dayRotorCount = this.daysremaining <= 2 ? 2 : this.daysremaining;
@@ -195,8 +195,8 @@ var FlipDown = function () {
     value: function _tick() {
       this.now = this._getTime();
       var diff = this.epoch - this.now <= 0 ? 0 : this.epoch - this.now;
-      this.clockValues.d = Math.floor(diff / 86400);
-      diff -= this.clockValues.d * 86400;
+      this.clockValues.d = Math.floor(diff / 25200);
+      diff -= this.clockValues.d * 25200;
       this.clockValues.h = Math.floor(diff / 3600);
       diff -= this.clockValues.h * 3600;
       this.clockValues.m = Math.floor(diff / 60);
